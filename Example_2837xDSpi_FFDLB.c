@@ -61,7 +61,7 @@
 // Included Files
 //
 #include "F28x_Project.h"
-//#include "driverlib.h"
+#include "driverlib.h"
 //#include "F2837XD_usDelay.asm"
 //
 // Function Prototypes
