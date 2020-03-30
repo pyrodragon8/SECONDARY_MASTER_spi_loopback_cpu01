@@ -26,11 +26,6 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>Example_2837xDSpi_FFDLB.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-ORIGINAL_PROJECT_ROOT/Example_2837xDSpi_FFDLB.c</locationURI>
-		</link>
-		<link>
 			<name>F2837xD_CodeStartBranch.asm</name>
 			<type>1</type>
 			<locationURI>PARENT-5-ORIGINAL_PROJECT_ROOT/common/source/F2837xD_CodeStartBranch.asm</locationURI>
