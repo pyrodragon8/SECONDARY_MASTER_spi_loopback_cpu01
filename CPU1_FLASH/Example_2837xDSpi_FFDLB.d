@@ -134,6 +134,7 @@ Example_2837xDSpi_FFDLB.obj: C:/ti/C2000Ware_2_01_00_00_Software/driverlib/f2837
 Example_2837xDSpi_FFDLB.obj: C:/ti/C2000Ware_2_01_00_00_Software/driverlib/f2837xd/driverlib/upp.h
 Example_2837xDSpi_FFDLB.obj: C:/ti/C2000Ware_2_01_00_00_Software/driverlib/f2837xd/driverlib/inc/hw_upp.h
 Example_2837xDSpi_FFDLB.obj: C:/ti/C2000Ware_2_01_00_00_Software/driverlib/f2837xd/driverlib/version.h
+Example_2837xDSpi_FFDLB.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/include/device.h
 
 ../Example_2837xDSpi_FFDLB.c: 
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/include/F28x_Project.h: 
@@ -269,3 +270,4 @@ C:/ti/C2000Ware_2_01_00_00_Software/driverlib/f2837xd/driverlib/inc/hw_spi.h:
 C:/ti/C2000Ware_2_01_00_00_Software/driverlib/f2837xd/driverlib/upp.h: 
 C:/ti/C2000Ware_2_01_00_00_Software/driverlib/f2837xd/driverlib/inc/hw_upp.h: 
 C:/ti/C2000Ware_2_01_00_00_Software/driverlib/f2837xd/driverlib/version.h: 
+C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/include/device.h: 
