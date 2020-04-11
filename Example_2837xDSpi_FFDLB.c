@@ -103,7 +103,7 @@ void main(void)
 // This example function is found in the F2837xD_SysCtrl.c file.
 //
     InitSysCtrl();
-    Device_init();
+//    Device_init();
 //    Device_initGPIO();
 //
 // Step 2. Initialize GPIO:
