@@ -21,6 +21,8 @@ ORDERED_OBJS += \
 "./F2837xD_Spi.obj" \
 "./F2837xD_SysCtrl.obj" \
 "./F2837xD_usDelay.obj" \
+"./device/device.obj" \
+"C:/ti/C2000Ware_3_01_00_00_Software/driverlib/f2837xd/driverlib/ccs/Debug/driverlib.lib" \
 $(GEN_CMDS__FLAG) \
 -lrts2800_fpu32.lib \
 -l2837xD_FLASH_lnk_cpu1.cmd \
@@ -35,7 +37,9 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include device/subdir_vars.mk
 -include subdir_rules.mk
+-include device/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -142,18 +146,18 @@ EXE_OUTPUTS__QUOTED += \
 all: spi_loopback_cpu01_SPIA_differentPINS_WORKS.out
 
 # Tool invocations
-spi_loopback_cpu01_SPIA_differentPINS_WORKS.out: $(OBJS) $(GEN_CMDS)
+spi_loopback_cpu01_SPIA_differentPINS_WORKS.out: $(OBJS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: C2000 Linker'
-	"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/bin/cl2000" -v28 -ml -mt --vcu_support=vcu2 --tmu_support=tmu0 --cla_support=cla1 --float_support=fpu32 -g --define=CPU1 --define=_FLASH --define=_DUAL_HEADERS --define=_ADC_setMode --define=_SysCtl_delay --display_error_number --diag_suppress=10063 --diag_warning=225 -z -m"spi_loopback_cpu01_SPIA_differentPINS_WORKS.map" --stack_size=0x100 --warn_sections -i"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/lib" -i"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include" -i"C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/cmd" -i"C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/cmd" --reread_libs --display_error_number --xml_link_info="spi_loopback_cpu01_SPIA_differentPINS_WORKS_linkInfo.xml" --entry_point=code_start --scan_libraries --rom_model -o "spi_loopback_cpu01_SPIA_differentPINS_WORKS.out" $(ORDERED_OBJS)
+	"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/bin/cl2000" -v28 -ml -mt --vcu_support=vcu2 --tmu_support=tmu0 --cla_support=cla1 --float_support=fpu32 -g --define=CPU1 --define=_FLASH --define=_DUAL_HEADERS --display_error_number --diag_suppress=10063 --diag_warning=225 -z -m"spi_loopback_cpu01_SPIA_differentPINS_WORKS.map" --stack_size=0x100 --warn_sections -i"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/lib" -i"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include" -i"C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/cmd" -i"C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/cmd" --reread_libs --display_error_number --xml_link_info="spi_loopback_cpu01_SPIA_differentPINS_WORKS_linkInfo.xml" --entry_point=code_start --scan_libraries --rom_model -o "spi_loopback_cpu01_SPIA_differentPINS_WORKS.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "Example_2837xDSpi_FFDLB.obj" "F2837xD_CodeStartBranch.obj" "F2837xD_DefaultISR.obj" "F2837xD_GlobalVariableDefs.obj" "F2837xD_Gpio.obj" "F2837xD_Ipc.obj" "F2837xD_PieCtrl.obj" "F2837xD_PieVect.obj" "F2837xD_Spi.obj" "F2837xD_SysCtrl.obj" "F2837xD_usDelay.obj" 
-	-$(RM) "Example_2837xDSpi_FFDLB.d" "F2837xD_DefaultISR.d" "F2837xD_GlobalVariableDefs.d" "F2837xD_Gpio.d" "F2837xD_Ipc.d" "F2837xD_PieCtrl.d" "F2837xD_PieVect.d" "F2837xD_Spi.d" "F2837xD_SysCtrl.d" 
+	-$(RM) "Example_2837xDSpi_FFDLB.obj" "F2837xD_CodeStartBranch.obj" "F2837xD_DefaultISR.obj" "F2837xD_GlobalVariableDefs.obj" "F2837xD_Gpio.obj" "F2837xD_Ipc.obj" "F2837xD_PieCtrl.obj" "F2837xD_PieVect.obj" "F2837xD_Spi.obj" "F2837xD_SysCtrl.obj" "F2837xD_usDelay.obj" "device\device.obj" 
+	-$(RM) "Example_2837xDSpi_FFDLB.d" "F2837xD_DefaultISR.d" "F2837xD_GlobalVariableDefs.d" "F2837xD_Gpio.d" "F2837xD_Ipc.d" "F2837xD_PieCtrl.d" "F2837xD_PieVect.d" "F2837xD_Spi.d" "F2837xD_SysCtrl.d" "device\device.d" 
 	-$(RM) "F2837xD_CodeStartBranch.d" "F2837xD_usDelay.d" 
 	-@echo 'Finished clean'
 	-@echo ' '

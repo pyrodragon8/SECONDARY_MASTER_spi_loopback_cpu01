@@ -193,14 +193,14 @@ void main(void)
         adcBResult0 = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER0);
         adcBResult1 = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER1);
 
-//       strncpy((unsigned char *) sentdata, sdata, SPI_MSG_LENGTH);
+       strncpy((unsigned char *) sentdata, adcAResult0, SPI_MSG_LENGTH);
 
 //       spi_xmit(sentdata);
 
-        for (i = 0; i < SPI_MSG_LENGTH; i++)
-        {
-            sentdata[i] = sdata - i;
-        }
+//        for (i = 0; i < SPI_MSG_LENGTH; i++)
+//        {
+//            sentdata[i] = sdata - i;
+//        }
         for (j = 0; j < SPI_MSG_LENGTH; j++)
         {
             spi_xmit(sentdata[j]);
