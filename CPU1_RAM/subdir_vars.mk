@@ -5,12 +5,15 @@
 SHELL = cmd.exe
 
 # Add inputs and outputs from these tool invocations to the build variables 
+LIB_SRCS += \
+C:/ti/C2000Ware_3_01_00_00_Software/driverlib/f2837xd/driverlib/ccs/Debug/driverlib.lib 
+
 ASM_SRCS += \
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_CodeStartBranch.asm \
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_usDelay.asm 
 
 C_SRCS += \
-C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/examples/cpu1/spi_loopback/cpu01/Example_2837xDSpi_FFDLB.c \
+../Example_2837xDSpi_FFDLB.c \
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_DefaultISR.c \
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/source/F2837xD_GlobalVariableDefs.c \
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_Gpio.c \
@@ -77,7 +80,7 @@ ASM_DEPS__QUOTED += \
 "F2837xD_usDelay.d" 
 
 C_SRCS__QUOTED += \
-"C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/examples/cpu1/spi_loopback/cpu01/Example_2837xDSpi_FFDLB.c" \
+"../Example_2837xDSpi_FFDLB.c" \
 "C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_DefaultISR.c" \
 "C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/source/F2837xD_GlobalVariableDefs.c" \
 "C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_Gpio.c" \

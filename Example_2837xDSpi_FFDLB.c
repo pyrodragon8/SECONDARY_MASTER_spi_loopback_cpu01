@@ -72,7 +72,17 @@
 #define RESULTS_BUFFER_SIZE     256
 #define EX_ADC_RESOLUTION       12
 
-uint16_t adcAResult0;
+Uint16 adcAResult0;
+Uint16 adcAResult2;
+Uint16 adcAResult0;
+Uint16 adcAResult2;
+Uint16 adcAResult0;
+Uint16 adcAResult2;
+
+
+
+
+
 uint16_t adcAResult1;
 uint16_t adcBResult0;
 uint16_t adcBResult1;
@@ -92,11 +102,11 @@ void main(void)
     Uint16 sdata = 9911;  // send data
     Uint16 rdata;  // received data
     Uint16 spacer = 500000;  // time between sending each part of the number
-    Uint16 i, j;
+    Uint16 i=0, j=0;
 //   sdata = 0x0000;
 
 //   unsigned char readdata[SPI_MSG_LENGTH];
-    unsigned char sentdata[SPI_MSG_LENGTH];
+    unsigned char sentdata[SPI_MSG_LENGTH]=0;
 //
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
@@ -109,7 +119,6 @@ void main(void)
 // Step 2. Initialize GPIO:
 // This example function is found in the F2837xD_Gpio.c file and
 // illustrates how to set the GPIO to it's default state.
-//   yeeeeeeeeeeeeeeeeeeeepotato!!!!!!!!!!!
 // Setup only the GP I/O only for SPI-A functionality
 // This function is found in F2837xD_Spi.c
 //
@@ -189,23 +198,32 @@ void main(void)
         // Store results
         //
         adcAResult0 = (ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0) + adcAResult0)/2;
+//        i = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0);
         adcAResult1 = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER1);
         adcBResult0 = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER0);
         adcBResult1 = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER1);
 
-       strncpy((unsigned char *) sentdata, adcAResult0, SPI_MSG_LENGTH);
+//       strcpy((unsigned char *) sdata, i, SPI_MSG_LENGTH);
+//       strcpy((unsigned char *) sdata, adcAResult0, SPI_MSG_LENGTH);
 
 //       spi_xmit(sentdata);
-
-//        for (i = 0; i < SPI_MSG_LENGTH; i++)
+//
+//        for (i = 0; i < 4; i++)
 //        {
-//            sentdata[i] = sdata - i;
+//            sentdata[i] = adcAResult0[i];
+//                    sentdata[] = adcAResult0;
 //        }
-        for (j = 0; j < SPI_MSG_LENGTH; j++)
-        {
-            spi_xmit(sentdata[j]);
-            DELAY_US(spacer);
-        }
+//        for (j = 0; j < SPI_MSG_LENGTH; j++)
+//        {
+//            spi_xmit(sdata);
+//          i = adcAResult0*(255/4096);
+          i = 4096;
+          spi_xmit(adcAResult1);
+          spi_xmit(0);
+          spi_xmit(adcAResult0);
+          spi_xmit(0);
+          //            DELAY_US(spacer);
+//        }
         //
         // Wait until data is received
 
@@ -372,3 +390,4 @@ void initADCSOCs(void)
 //
 // End of file
 //
+
