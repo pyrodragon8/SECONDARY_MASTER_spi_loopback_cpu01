@@ -220,7 +220,7 @@ void main(void)
 //        {
 //            error();
 //        }
-//        DELAY_US(1000000);
+        DELAY_US(500000);
     }
 }
 
