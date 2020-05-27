@@ -67,24 +67,26 @@
 //
 // Function Prototypes
 //
-#define SPI_MSG_LENGTH  (30)
+#define SPI_MSG_LENGTH  (12)
+//#define SPI_MSG_LENGTH  (30)
 
 #define RESULTS_BUFFER_SIZE     256
 #define EX_ADC_RESOLUTION       12
 
-Uint16 adcAResult0;
-Uint16 adcAResult2;
-Uint16 adcAResult0;
-Uint16 adcAResult2;
-Uint16 adcAResult0;
-Uint16 adcAResult2;
+Uint16 phaseBI;
+Uint16 phaseAI;
+Uint16 DCLinkV;
+Uint16 CoilT;
+Uint16 DCLinkI;
+Uint16 AuxT;
+Uint16 BattT;
 
 
 
 
 
-uint16_t adcAResult1;
-uint16_t adcBResult0;
+uint16_t adcAResult0;
+uint16_t adcAResult2;
 uint16_t adcBResult1;
 
 void delay_loop(void);
@@ -175,68 +177,50 @@ void main(void)
         //
         ADC_forceSOC(ADCA_BASE, ADC_SOC_NUMBER0);
         ADC_forceSOC(ADCA_BASE, ADC_SOC_NUMBER1);
+        ADC_forceSOC(ADCA_BASE, ADC_SOC_NUMBER2);
         ADC_forceSOC(ADCB_BASE, ADC_SOC_NUMBER0);
         ADC_forceSOC(ADCB_BASE, ADC_SOC_NUMBER1);
+        ADC_forceSOC(ADCC_BASE, ADC_SOC_NUMBER0);
+        ADC_forceSOC(ADCC_BASE, ADC_SOC_NUMBER1);
 
-        //
-        // Wait for ADCA to complete, then acknowledge flag
-        //
-        while (ADC_getInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1) == false)
-        {
-        }
+        while(ADC_getInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1) == false){}
         ADC_clearInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1);
 
-        //
-        // Wait for ADCB to complete, then acknowledge flag
-        //
-        while (ADC_getInterruptStatus(ADCB_BASE, ADC_INT_NUMBER1) == false)
-        {
-        }
+        while(ADC_getInterruptStatus(ADCB_BASE, ADC_INT_NUMBER1) == false){}
         ADC_clearInterruptStatus(ADCB_BASE, ADC_INT_NUMBER1);
 
-        //
-        // Store results
-        //
-        adcAResult0 = (ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0) + adcAResult0)/2;
-//        i = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0);
-        adcAResult1 = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER1);
-        adcBResult0 = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER0);
-        adcBResult1 = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER1);
+        while(ADC_getInterruptStatus(ADCC_BASE, ADC_INT_NUMBER1) == false){}
+        ADC_clearInterruptStatus(ADCC_BASE, ADC_INT_NUMBER1);
 
-//       strcpy((unsigned char *) sdata, i, SPI_MSG_LENGTH);
-//       strcpy((unsigned char *) sdata, adcAResult0, SPI_MSG_LENGTH);
 
-//       spi_xmit(sentdata);
-//
-//        for (i = 0; i < 4; i++)
-//        {
-//            sentdata[i] = adcAResult0[i];
-//                    sentdata[] = adcAResult0;
-//        }
-//        for (j = 0; j < SPI_MSG_LENGTH; j++)
-//        {
-//            spi_xmit(sdata);
-//          i = adcAResult0*(255/4096);
-          i = 4096;
-          spi_xmit(adcAResult1);
-          spi_xmit(0);
-          spi_xmit(adcAResult0);
-          spi_xmit(0);
-          //            DELAY_US(spacer);
-//        }
-        //
-        // Wait until data is received
 
-//        while(SpiaRegs.SPIFFRX.bit.RXFFST !=1) { }
+        phaseBI = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0);
+        DCLinkI = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER1);
+        phaseAI = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER2);
 
-//         Check against sent data
+        DCLinkV = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER0);
+        AuxT = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER1);
+
+        CoilT = ADC_readResult(ADCCRESULT_BASE, ADC_SOC_NUMBER0);
+        BattT = ADC_readResult(ADCCRESULT_BASE, ADC_SOC_NUMBER1);
+
+
+
+
+          spi_xmit(phaseBI);
+//          spi_xmit(0);
+          spi_xmit(DCLinkI);
+//          spi_xmit(0);
+
+
+
         rdata = SpiaRegs.SPIRXBUF;
 //        rdata = SpibRegs.SPIRXBUF;
 //        if(rdata != sdata)
 //        {
 //            error();
 //        }
-        DELAY_US(1000000);
+//        DELAY_US(1000000);
     }
 }
 
@@ -303,6 +287,7 @@ void initADCs(void)
     //
     ADC_setPrescaler(ADCA_BASE, ADC_CLK_DIV_4_0);
     ADC_setPrescaler(ADCB_BASE, ADC_CLK_DIV_4_0);
+    ADC_setPrescaler(ADCC_BASE, ADC_CLK_DIV_4_0);
 
     //
     // Set resolution and signal mode (see #defines above) and load
@@ -311,22 +296,27 @@ void initADCs(void)
 #if(EX_ADC_RESOLUTION == 12)
     ADC_setMode(ADCA_BASE, ADC_RESOLUTION_12BIT, ADC_MODE_SINGLE_ENDED);
     ADC_setMode(ADCB_BASE, ADC_RESOLUTION_12BIT, ADC_MODE_SINGLE_ENDED);
+    ADC_setMode(ADCC_BASE, ADC_RESOLUTION_12BIT, ADC_MODE_SINGLE_ENDED);
 #elif(EX_ADC_RESOLUTION == 16)
     ADC_setMode(ADCA_BASE, ADC_RESOLUTION_16BIT, ADC_MODE_DIFFERENTIAL);
     ADC_setMode(ADCB_BASE, ADC_RESOLUTION_16BIT, ADC_MODE_DIFFERENTIAL);
+    ADC_setMode(ADCC_BASE, ADC_RESOLUTION_16BIT, ADC_MODE_DIFFERENTIAL);
 #endif
+
 
     //
     // Set pulse positions to late
     //
     ADC_setInterruptPulseMode(ADCA_BASE, ADC_PULSE_END_OF_CONV);
     ADC_setInterruptPulseMode(ADCB_BASE, ADC_PULSE_END_OF_CONV);
+    ADC_setInterruptPulseMode(ADCC_BASE, ADC_PULSE_END_OF_CONV);
 
     //
     // Power up the ADCs and then delay for 1 ms
     //
     ADC_enableConverter(ADCA_BASE);
     ADC_enableConverter(ADCB_BASE);
+    ADC_enableConverter(ADCC_BASE);
 
     DEVICE_DELAY_US(1000);
 }
@@ -346,11 +336,13 @@ void initADCSOCs(void)
     //   of 64 (320 ns at a 200MHz SYSCLK rate) will be used.
     //
 #if(EX_ADC_RESOLUTION == 12)
-    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0,15);
-    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN1,15);
+    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 15);
+    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN3, 15);
+    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER2, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN2, 15);
 #elif(EX_ADC_RESOLUTION == 16)
-    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY,ADC_CH_ADCIN0, 64);
-    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY,ADC_CH_ADCIN1, 64);
+    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 64);
+    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN3, 64);
+    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER2, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN2, 64);
 #endif
 
     //
@@ -371,11 +363,11 @@ void initADCSOCs(void)
     //   of 64 (320 ns at a 200MHz SYSCLK rate) will be used.
     //
 #if(EX_ADC_RESOLUTION == 12)
-    ADC_setupSOC(ADCB_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0,15);
-    ADC_setupSOC(ADCB_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN1,15);
+    ADC_setupSOC(ADCB_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN2, 15);
+    ADC_setupSOC(ADCB_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN3, 15);
 #elif(EX_ADC_RESOLUTION == 16)
-    ADC_setupSOC(ADCB_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY,ADC_CH_ADCIN0, 64);
-    ADC_setupSOC(ADCB_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY,ADC_CH_ADCIN1, 64);
+    ADC_setupSOC(ADCB_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN2, 64);
+    ADC_setupSOC(ADCB_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN3, 64);
 #endif
 
     //
@@ -385,6 +377,21 @@ void initADCSOCs(void)
     ADC_setInterruptSource(ADCB_BASE, ADC_INT_NUMBER1, ADC_SOC_NUMBER1);
     ADC_enableInterrupt(ADCB_BASE, ADC_INT_NUMBER1);
     ADC_clearInterruptStatus(ADCB_BASE, ADC_INT_NUMBER1);
+
+
+
+
+#if(EX_ADC_RESOLUTION == 12)
+    ADC_setupSOC(ADCC_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN2, 15);
+    ADC_setupSOC(ADCC_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN3, 15);
+#elif(EX_ADC_RESOLUTION == 16)
+    ADC_setupSOC(ADCC_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN2, 64);
+    ADC_setupSOC(ADCC_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN3, 64);
+#endif
+
+    ADC_setInterruptSource(ADCC_BASE, ADC_INT_NUMBER1, ADC_SOC_NUMBER1);
+    ADC_enableInterrupt(ADCC_BASE, ADC_INT_NUMBER1);
+    ADC_clearInterruptStatus(ADCC_BASE, ADC_INT_NUMBER1);
 }
 
 //
