@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v18.12.3                    
 ******************************************************************************
->> Linked Thu May 28 10:04:48 2020
+>> Linked Thu May 28 12:42:38 2020
 
 OUTPUT FILE NAME:   <spi_loopback_cpu01_SPIA_differentPINS_WORKS.out>
 ENTRY POINT SYMBOL: "code_start"  address: 00080000

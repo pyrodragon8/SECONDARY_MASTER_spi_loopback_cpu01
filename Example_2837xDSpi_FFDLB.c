@@ -211,7 +211,9 @@ void main(void)
 //          spi_xmit(0);
           spi_xmit(DCLinkI);
 //          spi_xmit(0);
-
+//          spi_xmit(phaseAI);
+////          spi_xmit(0);
+//          spi_xmit(DCLinkI);
 
 
         rdata = SpiaRegs.SPIRXBUF;
