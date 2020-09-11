@@ -67,7 +67,7 @@
 //
 // Function Prototypes
 //
-#define SPI_MSG_LENGTH  (12)
+#define SPI_MSG_LENGTH  (40)
 //#define SPI_MSG_LENGTH  (30)
 
 #define RESULTS_BUFFER_SIZE     256
@@ -86,7 +86,8 @@ Uint16 hall2;
 Uint16 hall3;
 
 
-
+Uint16 sdata = 9911;  // send data
+unsigned char rdata[SPI_MSG_LENGTH];
 
 
 uint16_t adcAResult0;
@@ -105,8 +106,8 @@ void initADCSOCs(void);
 
 void main(void)
 {
-    Uint16 sdata = 9911;  // send data
-    Uint16 rdata;  // received data
+
+//    unsigned char rdata[SPI_MSG_LENGTH]=0;
     Uint16 spacer = 500000;  // time between sending each part of the number
     Uint16 i=0, j=0;
 //   sdata = 0x0000;
@@ -176,9 +177,8 @@ void main(void)
 
     for (;;)
     {
-        //
-        // Transmit data
-        //
+
+//ADC converter allocation stack
         ADC_forceSOC(ADCA_BASE, ADC_SOC_NUMBER0);
         ADC_forceSOC(ADCA_BASE, ADC_SOC_NUMBER1);
         ADC_forceSOC(ADCA_BASE, ADC_SOC_NUMBER2);
@@ -191,7 +191,8 @@ void main(void)
 
         ADC_forceSOC(ADCC_BASE, ADC_SOC_NUMBER0);
         ADC_forceSOC(ADCC_BASE, ADC_SOC_NUMBER1);
-
+//
+////Required thing stack
         while(ADC_getInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1) == false){}
         ADC_clearInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1);
 
@@ -200,9 +201,9 @@ void main(void)
 
         while(ADC_getInterruptStatus(ADCC_BASE, ADC_INT_NUMBER1) == false){}
         ADC_clearInterruptStatus(ADCC_BASE, ADC_INT_NUMBER1);
-
-
-
+//
+//
+////ADC pull stack
         phaseBI = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0);
         DCLinkI = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER1);
         phaseAI = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER2);
@@ -215,27 +216,35 @@ void main(void)
 
         CoilT = ADC_readResult(ADCCRESULT_BASE, ADC_SOC_NUMBER0);
         BattT = ADC_readResult(ADCCRESULT_BASE, ADC_SOC_NUMBER1);
+//
+//                  spi_xmit(125);
+//
+////Transmission Stack
+        spi_xmit(phaseAI);
+        spi_xmit(phaseBI);
 
+        spi_xmit(CoilT);
+        spi_xmit(BattT);
+        spi_xmit(AuxT);
 
+        spi_xmit(hall1);
+        spi_xmit(hall2);
+        spi_xmit(hall3);
 
+        spi_xmit(DCLinkI);
+        spi_xmit(DCLinkV);
 
-          spi_xmit(phaseBI);
-//          spi_xmit(0);
-          spi_xmit(phaseAI);
-          spi_xmit(DCLinkI);
-//          spi_xmit(0);
+          for (i=0; i<SPI_MSG_LENGTH ; i++){
+              rdata[i] = SpiaRegs.SPIRXBUF;
+          }
 
-////          spi_xmit(0);
-//          spi_xmit(DCLinkI);
-
-
-        rdata = SpiaRegs.SPIRXBUF;
 //        rdata = SpibRegs.SPIRXBUF;
 //        if(rdata != sdata)
 //        {
 //            error();
 //        }
-        DELAY_US(500000);
+//        DELAY_US(500000);
+//        DELAY_US(1000000);
     }
 }
 

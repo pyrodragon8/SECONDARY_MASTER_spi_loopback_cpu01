@@ -9,5 +9,5 @@
 	<rts value="libc.a"/>
 	<templateProperties value="id=com.ti.common.project.core.emptyProjectTemplate,"/>
 	<isTargetManual value="false"/>
-	<origin value="C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/examples/cpu1/spi_loopback/cpu01/ccs"/>
+	<origin value="C:/Users/n10592563/OneDrive - Queensland University of Technology/Documents/TiGitCode/Primary_F28379D/spi_loopback_cpu01_SPIA_differentPINS_WORKS"/>
 </projectOptions>

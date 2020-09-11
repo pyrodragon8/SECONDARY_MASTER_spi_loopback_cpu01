@@ -20,7 +20,7 @@ C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_Ipc.c \
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_PieCtrl.c \
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_PieVect.c \
-C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_Spi.c \
+../F2837xD_Spi.c \
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_SysCtrl.c 
 
 C_DEPS += \
@@ -87,7 +87,7 @@ C_SRCS__QUOTED += \
 "C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_Ipc.c" \
 "C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_PieCtrl.c" \
 "C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_PieVect.c" \
-"C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_Spi.c" \
+"../F2837xD_Spi.c" \
 "C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_SysCtrl.c" 
 
 ASM_SRCS__QUOTED += \

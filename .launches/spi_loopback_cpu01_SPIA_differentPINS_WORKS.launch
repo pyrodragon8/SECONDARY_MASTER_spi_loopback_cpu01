@@ -16,7 +16,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.TMS320F28377D.ccxml.Texas Instruments XDS100v2 USB Debug Probe_0/C28xx_CPU1" value="${build_artifact:spi_loopback_cpu01_SPIA_differentPINS_WORKS}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.TMS320F28377D.ccxml.Texas Instruments XDS100v2 USB Debug Probe_0/C28xx_CPU1" value="spi_loopback_cpu01_SPIA_differentPINS_WORKS"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:spi_loopback_cpu01_SPIA_differentPINS_WORKS}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.TMS320F28377D.ccxml.Texas Instruments XDS100v2 USB Debug Probe_0/C28xx_CPU1" value="C:/Users\n10592563\workspace_v9_2\spi_loopback_cpu01_SPIA_differentPINS_WORKS\CPU1_FLASH\spi_loopback_cpu01_SPIA_differentPINS_WORKS.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.TMS320F28377D.ccxml.Texas Instruments XDS100v2 USB Debug Probe_0/C28xx_CPU1" value="C:/Users\n10592563\workspace_v9_3\spi_loopback_cpu01_SPIA_differentPINS_WORKS\CPU1_RAM\spi_loopback_cpu01_SPIA_differentPINS_WORKS.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/spi_loopback_cpu01_SPIA_differentPINS_WORKS"/>
 </listAttribute>

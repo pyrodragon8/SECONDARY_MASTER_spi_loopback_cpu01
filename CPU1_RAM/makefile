@@ -4,7 +4,7 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS
+CG_TOOL_ROOT := C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -136,20 +136,20 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-spi_loopback_cpu01_SPIA_differentPINS_WORKS.out \
+SECONDARY_MASTER_spi_loopback_cpu01.out \
 
 EXE_OUTPUTS__QUOTED += \
-"spi_loopback_cpu01_SPIA_differentPINS_WORKS.out" \
+"SECONDARY_MASTER_spi_loopback_cpu01.out" \
 
 
 # All Target
-all: spi_loopback_cpu01_SPIA_differentPINS_WORKS.out
+all: SECONDARY_MASTER_spi_loopback_cpu01.out
 
 # Tool invocations
-spi_loopback_cpu01_SPIA_differentPINS_WORKS.out: $(OBJS) $(LIB_SRCS) $(GEN_CMDS)
+SECONDARY_MASTER_spi_loopback_cpu01.out: $(OBJS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: C2000 Linker'
-	"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/bin/cl2000" -v28 -ml -mt --vcu_support=vcu2 --tmu_support=tmu0 --cla_support=cla1 --float_support=fpu32 -g --define=CPU1 --display_error_number --diag_suppress=10063 --diag_warning=225 -z -m"spi_loopback_cpu01_SPIA_differentPINS_WORKS.map" --stack_size=0x100 --warn_sections -i"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/lib" -i"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include" -i"C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/cmd" -i"C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/cmd" --reread_libs --display_error_number --xml_link_info="spi_loopback_cpu01_SPIA_differentPINS_WORKS_linkInfo.xml" --entry_point=code_start --rom_model -o "spi_loopback_cpu01_SPIA_differentPINS_WORKS.out" $(ORDERED_OBJS)
+	"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --cla_support=cla1 --tmu_support=tmu0 --vcu_support=vcu2 -g --define=CPU1 --define=_DUAL_HEADERS --display_error_number --diag_suppress=10063 --diag_warning=225 -z -m"SECONDARY_MASTER_spi_loopback_cpu01.map" --stack_size=0x100 --warn_sections -i"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/lib" -i"C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include" -i"C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/cmd" -i"C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/cmd" --reread_libs --display_error_number --xml_link_info="SECONDARY_MASTER_spi_loopback_cpu01_linkInfo.xml" --entry_point=code_start --rom_model -o "SECONDARY_MASTER_spi_loopback_cpu01.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 

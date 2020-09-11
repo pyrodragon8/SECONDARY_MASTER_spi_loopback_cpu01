@@ -2,20 +2,12 @@
 
 F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_SysCtrl.c
 F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_device.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/assert.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/_ti_config.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/linkage.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/stdarg.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/sys/_types.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/sys/cdefs.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/machine/_types.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/stdbool.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/stddef.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/stdint.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/_stdint40.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/sys/stdint.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/machine/_stdint.h
-F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/sys/_stdint.h
+F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/assert.h
+F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/linkage.h
+F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/stdarg.h
+F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/stdbool.h
+F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/stddef.h
+F2837xD_SysCtrl.obj: C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/stdint.h
 F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_adc.h
 F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_analogsubsys.h
 F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_cla.h
@@ -47,7 +39,6 @@ F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/
 F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_upp.h
 F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_xbar.h
 F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_xint.h
-F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_can.h
 F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/include/F2837xD_Examples.h
 F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/include/F2837xD_GlobalPrototypes.h
 F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/include/F2837xD_cputimervars.h
@@ -66,20 +57,12 @@ F2837xD_SysCtrl.obj: C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/
 
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/source/F2837xD_SysCtrl.c: 
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_device.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/assert.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/_ti_config.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/linkage.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/stdarg.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/sys/_types.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/sys/cdefs.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/machine/_types.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/stdbool.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/stddef.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/stdint.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/_stdint40.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/sys/stdint.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/machine/_stdint.h: 
-C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_18.12.3.LTS/include/sys/_stdint.h: 
+C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/assert.h: 
+C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/linkage.h: 
+C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/stdarg.h: 
+C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/stdbool.h: 
+C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/stddef.h: 
+C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c2000_15.12.7.LTS/include/stdint.h: 
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_adc.h: 
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_analogsubsys.h: 
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_cla.h: 
@@ -111,7 +94,6 @@ C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_upp.h: 
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_xbar.h: 
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_xint.h: 
-C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/headers/include/F2837xD_can.h: 
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/include/F2837xD_Examples.h: 
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/include/F2837xD_GlobalPrototypes.h: 
 C:/ti/C2000Ware_2_00_00_03_Software/device_support/f2837xd/common/include/F2837xD_cputimervars.h: 
